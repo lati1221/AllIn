@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +12,22 @@
 <body>
 
 <div id="wrap">
-		<header>
-			<div id="title" class="text-center"><h1>ALL IN MALL</h1></div>
-			<nav class="sub-menu col-4 d-flex align-items-end justify-content-end">
-                    <ul class="nav">
-                        <li class="nav-item"><a href="#" class="nav-link small-link">로그인</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link small-link">회원가입</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link small-link">고객센터</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link small-link">장바구니</a></li>
+		<c:import url="/WEB-INF/jsp/include/header.jsp" />
+		<nav class="sub-menu mt-4">
+                    <ul class="nav d-flex align-items-center justify-content-between bg-warning">
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">로그인</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">회원가입</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">고객센터</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">장바구니</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">장바구니</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">장바구니</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">장바구니</a></li>
                     </ul>                        
                 </nav>
-		</header>
-		<section class="contents d-flex justify-content-center">
-			<div class="input-box my-5">
-				
-							<form id="loginForm">
-							<input type="text" placeholder="아이디" class="form-control mt-4" id="loginIdInput">
-							<input type="password" placeholder="비밀번호" class="form-control mt-2" id="passwordInput">
-							<button type="submit" class="btn btn-block mt-3 text-white" id="loginBtn">로그인</button>
-						</form>
-				<div class="text-center mt-3">
-					<a href="/user/join">회원가입</a>
-				</div>
-			</div>
-		</section>
-		<footer></footer>
+                <section class="contents bg-primary">
+                <div class="text-white">잘 나오나?</div>
+                </section>
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 </body>
 </html>

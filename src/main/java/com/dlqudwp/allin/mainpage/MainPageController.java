@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/mainmenu/")
+@RequestMapping("/mainmenu")
 @Controller
 public class MainPageController {
 	
-	@GetMapping("/view-mainpage")
+	@GetMapping("/mainpage-view")
 	public String Mainpage() {
 		return "/main/mainpage";
 	}

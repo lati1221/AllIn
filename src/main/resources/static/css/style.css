@@ -16,6 +16,25 @@ header {
 	color: blueviolet;
 }
 
+.btn {
+	background-color: blueviolet;
+}
+
+header > .search {
+	height: 70px;
+	width: 600px;
+}
+
+.sub-menu {
+	width: auto;
+}
+
+.contents {
+	width: auto;
+	height: 600px;
+	
+}
+
 
 .contents > .input-box {
 	width: 400px;

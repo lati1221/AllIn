@@ -18,5 +18,9 @@
 				<div class="d-flex mr-3 text-success align-items-center justify-content-end">${userName }님 <a href="/user/logout">로그아웃</a></div>
 				</c:if>
 				
+				<c:if test="${empty userId }">
+				<div class="d-flex mr-3 text-success align-items-center justify-content-end"><a href="/user/login">로그인</a></div>
+				</c:if>
+				
 				
 </header>

@@ -57,6 +57,7 @@ public class UserRestController {
 		, @RequestParam("name") String name
 		, @RequestParam("email") String email) {
 		
+		
 		User user = userService.addUser(loginId, password, name, email);
 		
 		Map<String, String> resultMap = new HashMap<>();

@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dlqudwp.allin.comment.dto.CommentDetail;
+import com.dlqudwp.allin.comment.service.CommentService;
 import com.dlqudwp.allin.common.FileManager;
+import com.dlqudwp.allin.like.service.LikeService;
 import com.dlqudwp.allin.product.domain.Product;
+import com.dlqudwp.allin.product.dto.ProductDetail;
 import com.dlqudwp.allin.product.repository.ProductRepository;
 import com.dlqudwp.allin.user.domain.User;
 import com.dlqudwp.allin.user.service.UserService;
@@ -22,10 +26,14 @@ public class ProductService {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private LikeService likeService;
 	
-	public int deleteProduct(int productId, int userId) {
+	@Autowired
+	private CommentService commentService;
+	
+	public int deletePost(int productId, int userId) {
 		
-		// 첨부된 파일 삭제 
 		Product product = productRepository.selectProduct(productId);
 		
 		if(product.getUserId() != userId) {
@@ -33,13 +41,17 @@ public class ProductService {
 		}
 		
 		FileManager.removeFile(product.getImagePath());
+	
+		commentService.deleteCommentByProductId(productId);
+		
+		likeService.deleteLikeByProductId(productId);
 		
 		return productRepository.deleteProduct(productId);
 		
 	}
 	
 	
-	public int addProduct(int userId,String productName, String content, MultipartFile file, int price) {
+	public int addProduct(int userId, String productName, String content, MultipartFile file, int price) {
 		
 		String imagePath = FileManager.saveFile(userId, file);
 		
@@ -47,7 +59,35 @@ public class ProductService {
 		
 	}
 	
+	public List<ProductDetail> getProductList(int productId) {
 	
-	
-	
+		List<Product> productList = productRepository.selectProductList();
+		List<ProductDetail> productDetailList = new ArrayList<>();
+		for(Product product:productList) {
+			
+			int userId = product.getUserId();
+			User user = userService.getUserById(userId);
+			
+			
+			int likeCount = likeService.countLike(product.getId());
+			boolean isLike = likeService.isLike(product.getId(), userId);
+			
+			List<CommentDetail> commentList = commentService.getCommentList(product.getId());
+			
+			ProductDetail productDetail = ProductDetail.builder()
+									.id(product.getId())
+									.productId(productId)
+									.content(product.getContent())
+									.imagePath(product.getImagePath())
+									.likeCount(likeCount)
+									.isLike(isLike)
+									.commentList(commentList)
+									.build();
+			
+			productDetailList.add(productDetail);
+		}
+		
+		return productDetailList;
+		
+	}
 }

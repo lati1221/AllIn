@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<nav class="sub-menu mt-4">
                     <ul class="nav d-flex align-items-center justify-content-between bg-warning">
-                    	<li class="nav-item"><a href="/product/create" class="nav-link small-link" style="color:blueviolet">제품등록</a></li>
+                    	<li class="nav-item"><a href="/mainmenu/product" class="nav-link small-link" style="color:blueviolet">제품등록</a></li>
                         <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">인기상품</a></li>
                         <li class="nav-item"><a href="/user/join" class="nav-link small-link" style="color:blueviolet">회원가입</a></li>
                         <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">고객센터</a></li>
@@ -25,9 +26,10 @@
                 <section class="contents d-flex">
                  <article class="main-contents col-10 d-flex flex-wrap justify-content-between py-4">
                     <div class="product">
-                        <img alt="썸네일" src="images/test06_thumbnail1.jpg">
                         <div class="font-weight-bold">
-                            <a href="#">바람막이</a>
+                        <c:forEach var="product" items="${productList }">
+                            <a href="#">${productDetail.productName }</a>
+                        </c:forEach>
                         </div>
             
 

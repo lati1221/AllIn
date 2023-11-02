@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>타임라인</title>
+<title>제품 등록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
@@ -88,7 +88,7 @@
 					, contentType:false   
 					, success:function(data) {
 						if(data.result == "success") {
-							location.href = "/mainmenu/mainmenu-view";
+							location.href = "/mainpage-view";
 						} else {
 							alert("제품등록 실패");
 						}

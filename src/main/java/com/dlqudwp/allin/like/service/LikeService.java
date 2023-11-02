@@ -25,7 +25,7 @@ public class LikeService {
 		return count != 0;
 	}
 	
-	public int deleteLikeByPostId(int productId) {
+	public int deleteLikeByProductId(int productId) {
 		return likeRepository.deleteLikeByProductId(productId);
 	}
 	

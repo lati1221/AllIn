@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  
+<mapper namespace="com.dlqudwp.allin.like.repository.LikeRepository">
+
+	<insert id="insertLike" parameterType="map">
+		INSERT INTO
+			`like`
+		(
+			`productId`
+			, `userId`
+		)
+		VALUE
+		(
+			#{productId}
+			, #{userId}
+		)
+	</insert>
+	
+	<select id="selectCountLike" parameterType="int" resultType="int">
+		SELECT 
+			count(1)
+		FROM
+			`like`
+		WHERE 
+			`productId` = #{productId}
+		
+	
+	</select>
+	
+	<select id="selectCountLikeByUserId" parameterType="map" resultType="int">
+		SELECT 
+			count(1)
+		FROM 
+			`like`
+		WHERE 
+			`productId` = #{productId}
+			AND `userId` = #{userId}
+	</select>
+	
+	<delete id="deleteLikeByProductId" parameterType="int">
+		DELETE FROM 
+			`like`
+		WHERE 	
+			`productId` = #{productId}
+	</delete>
+	
+	<delete id="deleteLikeByProductIdAndUserId" parameterType="map">
+		DELETE FROM 
+			`like`
+		WHERE 
+			`productId` = #{productId}
+			AND `userId` = #{userId}
+	
+	</delete>
+
+
+</mapper>

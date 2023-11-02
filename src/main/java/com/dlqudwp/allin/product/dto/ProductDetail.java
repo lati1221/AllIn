@@ -1,5 +1,9 @@
 package com.dlqudwp.allin.product.dto;
 
+import java.util.List;
+
+import com.dlqudwp.allin.comment.dto.CommentDetail;
+
 import lombok.Builder;
 import lombok.Getter;
 
@@ -13,6 +17,6 @@ public class ProductDetail {
 	private String imagePath;
 	private int likeCount;
 	private boolean isLike;
-	
+	private List<CommentDetail> commentList;
 
 }

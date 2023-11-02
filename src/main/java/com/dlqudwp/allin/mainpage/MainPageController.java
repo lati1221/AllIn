@@ -12,5 +12,10 @@ public class MainPageController {
 	public String Mainpage() {
 		return "/main/mainpage";
 	}
+	
+	@GetMapping("/product")
+	public String ProductManage() {
+		return "/product/product";
+	}
 
 }

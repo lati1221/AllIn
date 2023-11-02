@@ -18,10 +18,10 @@ public interface ProductRepository {
 			, @Param("price") int price);
 	
 	
-	public Product selectProduct(@Param("postId") int productId);
+	public Product selectProduct(@Param("productId") int productId);
 	public List<Product> selectProductList();
 
 	
-	public int deleteProduct(@Param("postId") int productId);
+	public int deleteProduct(@Param("productId") int productId);
 
 }

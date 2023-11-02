@@ -29,9 +29,9 @@ public class ProductController {
 		
 		List<ProductDetail> productList = productService.getProductList(userId);
 		
-		model.addAttribute("postList", productList);
+		model.addAttribute("productList", productList);
 		return "main/mainpage";
 	}
-
-
+	
+	
 }

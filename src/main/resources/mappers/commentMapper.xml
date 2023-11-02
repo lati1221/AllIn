@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.dlqudwp.allin.comment.repository.CommentRepository">
+
+	<insert id="insertComment" parameterType="map">
+		INSERT INTO
+			`comment`
+		(
+			`userId`
+			, `productId`
+			, `content`
+		)
+		VALUE
+		(
+			#{userId}
+			, #{productId}
+			, #{content}
+		)
+	
+	</insert>
+	
+	<select id="selectCommentList" parameterType="int"
+	resultType="com.dlqudwp.allin.comment.domain.Comment">
+		SELECT 
+			`id`
+			, `productId`
+			, `userId`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`comment`
+		WHERE 
+			`productId` = #{productId}
+	
+	
+	</select>
+	
+	
+	<delete id="deleteCommentByProduct" parameterType="int">
+		DELETE FROM
+			`comment`
+		WHERE 
+			`productId` = #{productId}
+	
+	</delete>
+
+
+</mapper>

@@ -32,7 +32,7 @@ public class ProductService {
 	@Autowired
 	private CommentService commentService;
 	
-	public int deletePost(int productId, int userId) {
+	public int deleteProduct(int productId, int userId) {
 		
 		Product product = productRepository.selectProduct(productId);
 		

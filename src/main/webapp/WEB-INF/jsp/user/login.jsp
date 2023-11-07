@@ -61,7 +61,7 @@
 				, success:function(data) {
 					
 					if(data.result == "success") {
-						location.href = "/mainmenu/mainpage-view";
+						location.href = "/mainpage-view";
 					} else {
 						alert("아이디, 비밀번호를 확인해주세요");
 					}

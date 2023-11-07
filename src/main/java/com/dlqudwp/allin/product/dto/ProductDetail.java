@@ -15,6 +15,7 @@ public class ProductDetail {
 	private int productId;
 	private String content;
 	private String imagePath;
+	private int price;
 	private int likeCount;
 	private boolean isLike;
 	private List<CommentDetail> commentList;

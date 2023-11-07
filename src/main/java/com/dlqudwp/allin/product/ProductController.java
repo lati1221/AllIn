@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.dlqudwp.allin.product.domain.Product;
+import com.dlqudwp.allin.product.dto.ProductDetail;
 import com.dlqudwp.allin.product.service.ProductService;
 
 
@@ -27,11 +27,13 @@ public class ProductController {
 		int userId = (Integer)session.getAttribute("userId");
 		
 		
-		List<Product> productList = productService.getProductList(userId);
+		List<ProductDetail> productList = productService.getProductList(userId);
 		
 		model.addAttribute("productList", productList);
 		return "main/mainpage";
 	}
+	
+	
 	
 	
 }

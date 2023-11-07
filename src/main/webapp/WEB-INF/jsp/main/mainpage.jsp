@@ -26,16 +26,16 @@
                 <section class="contents d-flex">
                  <article class="main-contents col-10 d-flex flex-wrap justify-content-between py-4">
                     <div class="product">
-                        <div class="font-weight-bold">
+                        <div class="font-weight-bold text-warning">
                         <c:forEach var="product" items="${productList }">
-                            <a href="#">${productDetail.productName }</a>
+                            <a href="#">${product.productName }</a>
                         </c:forEach>
                         </div>
             
 
                     </div>
                     <div class="product">
-                        <img alt="썸네일" src="images/test06_thumbnail2.jpg">
+                        
                         <div class="font-weight-bold">
                             <a href="#">개사료</a>
                         </div>
@@ -43,7 +43,7 @@
 
                     </div>
                     <div class="product">
-                        <img alt="썸네일" src="images/fishtank.jpg">
+                       
                         <div class="font-weight-bold">
                             <a href="#">어항</a>
                         </div>

@@ -79,6 +79,7 @@ public class ProductService {
 									.productId(productId)
 									.content(product.getContent())
 									.imagePath(product.getImagePath())
+									.price(product.getPrice())
 									.likeCount(likeCount)
 									.isLike(isLike)
 									.commentList(commentList)

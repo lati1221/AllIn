@@ -9,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+<<<<<<< HEAD
 import com.dlqudwp.allin.product.domain.Product;
+=======
+>>>>>>> 22dcdce023c8fdb7a0e2f9c3efc7d840c95c7fb1
 import com.dlqudwp.allin.product.dto.ProductDetail;
 import com.dlqudwp.allin.product.service.ProductService;
 
@@ -31,10 +34,12 @@ public class ProductController {
 		List<ProductDetail> productList = productService.getProductList(userId);
 		
 		model.addAttribute("productList", productList);
-		return "product/productlistadmin";
+		return "main/mainpage";
 	}
 	
 
+	
+	
 	
 	
 }

@@ -30,22 +30,7 @@
 	resultType="com.dlqudwp.allin.product.domain.Product">
 		SELECT 
 			`id`
-			, `productName`
-			, `content`
-			, `imagePath`
-			, `price`
-			, `createdAt`
-			, `updatedAt`
-		FROM 
-			`product`
-		WHERE 
-			`id` = #{productId}
-	
-	</select>
-	
-	<select id="selectProductList" resultType="com.dlqudwp.allin.product.domain.Product">
-		SELECT 
-			`id`
+			, `userId`
 			, `productName`
 			, `content`
 			, `imagePath`
@@ -56,6 +41,21 @@
 			`product`
 		WHERE 
 			`userId` = #{userId}
+	
+	</select>
+	
+	<select id="selectProductList" resultType="com.dlqudwp.allin.product.domain.Product">
+		SELECT 
+			`id`
+			, `userId`
+			, `productName`
+			, `content`
+			, `imagePath`
+			, `price`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`product`
 		ORDER BY 
 			`id` DESC
 	</select>
@@ -64,7 +64,7 @@
 		DELETE FROM 
 			`product`
 		WHERE 
-			`id` = #{productId}
+			`userId` = #{userId}
 	
 	</delete>
   
@@ -76,7 +76,7 @@
 			, `content` = #{content}
 			, `updatedAt` = now()
 		WHERE
-			`id` = #{productId}
+			`userId` = #{userId}
 	
 	
 	</update>

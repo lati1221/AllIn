@@ -59,13 +59,13 @@ public class ProductService {
 		
 	}
 	
-	public List<ProductDetail> getProductList(int productId) {
+	public List<ProductDetail> getProductList(int userId) {
 	
-		List<Product> productList = productRepository.selectProductList();
+		List<Product> productList = productRepository.selectProductList(userId);
 		List<ProductDetail> productDetailList = new ArrayList<>();
 		for(Product product:productList) {
 			
-			int userId = product.getUserId();
+			int productId = product.getId();
 			User user = userService.getUserById(userId);
 			
 			
@@ -75,15 +75,16 @@ public class ProductService {
 			List<CommentDetail> commentList = commentService.getCommentList(product.getId());
 			
 			ProductDetail productDetail = ProductDetail.builder()
-									.id(product.getId())
-									.productId(productId)
-									.content(product.getContent())
-									.imagePath(product.getImagePath())
-									.price(product.getPrice())
-									.likeCount(likeCount)
-									.isLike(isLike)
-									.commentList(commentList)
-									.build();
+											.id(product.getId())
+											.productId(productId)
+											.productName(product.getProductName())
+											.content(product.getContent())
+											.imagePath(product.getImagePath())
+											.price(product.getPrice())
+											.likeCount(likeCount)
+											.isLike(isLike)
+											.commentList(commentList)
+											.build();
 			
 			productDetailList.add(productDetail);
 		}

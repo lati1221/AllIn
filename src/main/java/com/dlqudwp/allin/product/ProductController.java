@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.dlqudwp.allin.product.dto.ProductDetail;
 import com.dlqudwp.allin.product.service.ProductService;
 
-
 @Controller
 public class ProductController {
 	

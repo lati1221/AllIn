@@ -32,9 +32,10 @@ public class ProductService {
 	@Autowired
 	private CommentService commentService;
 	
-	public int deleteProduct(int productId, int userId) {
+	
+	public int deleteProduct(int userId) {
 		
-		Product product = productRepository.selectProduct(productId);
+		Product product = productRepository.selectProduct(userId);
 		
 		if(product.getUserId() != userId) {
 			return 0;
@@ -42,11 +43,11 @@ public class ProductService {
 		
 		FileManager.removeFile(product.getImagePath());
 	
-		commentService.deleteCommentByProductId(productId);
+		commentService.deleteCommentByProductId(userId);
 		
-		likeService.deleteLikeByProductId(productId);
+		likeService.deleteLikeByProductId(userId);
 		
-		return productRepository.deleteProduct(productId);
+		return productRepository.deleteProduct(userId);
 		
 	}
 	
@@ -69,7 +70,7 @@ public class ProductService {
 			User user = userService.getUserById(userId);
 			
 			
-			int likeCount = likeService.countLike(product.getId());
+			int likeCount = likeService.countLike(product.getUserId());
 			boolean isLike = likeService.isLike(product.getId(), userId);
 			
 			List<CommentDetail> commentList = commentService.getCommentList(product.getId());

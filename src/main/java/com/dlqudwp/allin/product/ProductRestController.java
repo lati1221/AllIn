@@ -28,7 +28,7 @@ public class ProductRestController {
 			, HttpSession session) {
 		
 		int userId = (Integer)session.getAttribute("userId");
-		int count = productService.deleteProduct(productId, userId);
+		int count = productService.deleteProduct(userId);
 		
 		Map<String, String> resultMap = new HashMap<>();
 		
@@ -63,5 +63,7 @@ public class ProductRestController {
 		
 		return resultMap;
 	}
+	
+	
 
 }

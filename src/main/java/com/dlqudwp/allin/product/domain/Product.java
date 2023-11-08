@@ -60,7 +60,6 @@ public class Product {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
 	
 	
 }

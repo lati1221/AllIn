@@ -19,7 +19,7 @@
 		VALUE
 		(
 			#{userId}
-			, #{productName}
+			,#{productName}
 			, #{content}
 			, #{imagePath}
 			, #{price}
@@ -30,6 +30,7 @@
 	resultType="com.dlqudwp.allin.product.domain.Product">
 		SELECT 
 			`id`
+			, `userId`
 			, `productName`
 			, `content`
 			, `imagePath`
@@ -39,13 +40,14 @@
 		FROM 
 			`product`
 		WHERE 
-			`id` = #{productId}
+			`userId` = #{1}
 	
 	</select>
 	
 	<select id="selectProductList" resultType="com.dlqudwp.allin.product.domain.Product">
 		SELECT 
 			`id`
+			, `userId`
 			, `productName`
 			, `content`
 			, `imagePath`
@@ -55,7 +57,7 @@
 		FROM 
 			`product`
 		WHERE 
-			`userId` = #{userId}
+			`userId` = #{1}
 		ORDER BY 
 			`id` DESC
 	</select>
@@ -64,19 +66,20 @@
 		DELETE FROM 
 			`product`
 		WHERE 
-			`id` = #{productId}
+			`userId` = #{1}
 	
 	</delete>
   
-  	<update id="updateProductt" parameterType="map">
+  	<update id="updateProduct" parameterType="map">
 		UPDATE
 			`product`
 		SET
-			`productName` = #{productName}
+			`userId` = #{1}
+			, `productName` = #{productName}
 			, `content` = #{content}
 			, `updatedAt` = now()
 		WHERE
-			`id` = #{productId}
+			`userId` = #{1}
 	
 	
 	</update>

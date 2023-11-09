@@ -82,7 +82,22 @@
 	</update>
   
   
-  
+  	<select id="searchByKeyword" parameterType="String" resultType="com.dlqudwp.allin.product.domain.Product">
+        SELECT 
+            `id`
+           , `userId`
+           , `productName`
+           , `content`
+           , `imagePath`
+           , `price`
+           , `createdAt`
+           , `updatedAt`
+        FROM 
+            `product`
+        WHERE 
+            LOWER(`productName`) LIKE LOWER(CONCAT('%', #{keyword}, '%'))
+            OR LOWER(`content`) LIKE LOWER(CONCAT('%', #{keyword}, '%'))
+    </select>
   
   
   

@@ -18,9 +18,6 @@ public class MainPageController {
 		return "/product/product";
 	}
 	
-	@GetMapping("/productList")
-	public String ProductListAdmin() {
-		return "/product/productlistadmin";
-	}
+	
 
 }

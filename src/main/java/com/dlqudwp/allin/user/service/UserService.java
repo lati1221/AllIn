@@ -18,6 +18,7 @@ public class UserService {
 		 return user;
 	}
 	
+	
 	public User getUser(String loginId, String password) {
 		
 		String encryptString = EncryptUtils.md5(password);

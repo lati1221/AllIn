@@ -31,29 +31,49 @@
                             <a href="#">${product.productName }</a>
                         </c:forEach>
                         </div>
-            
-
-                    </div>
-                    <div class="product">
-                        
-                        <div class="font-weight-bold">
-                            <a href="#">개사료</a>
-                        </div>
-                       
-
-                    </div>
-                    <div class="product">
-                       
-                        <div class="font-weight-bold">
-                            <a href="#">어항</a>
-                        </div>
-                        
-
-                    </div>
-                   
+                    </div>  
                 </article>
             </section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+    $(document).ready(function() {
+        $("#searchForm").on("submit", function(e) {
+            e.preventDefault();
+            let keyword = $("#searchInput").val();
+
+            $.ajax({
+                url: "/product/search" 
+                , method: "get"
+                , data: { "keyword" : keyword }
+                , success: function(response) {
+                    var resultsSection = $(".main-contents");
+                    resultsSection.empty();
+
+                    if (response.length > 0) {
+                        response.forEach(function(product) {
+                        	var productHtml = '<div class="product-item">' +
+                            '<img src="' + product.imagePath + '" alt="' + product.productName + '" style="width:100px; height:100px;">' +
+                            '<h3>' + product.productName + '</h3>' +
+                            '<p>' + product.content + '</p>' +
+                            
+                        '</div>';
+                            resultsSection.append(productHtml);
+                        });
+                    } else {
+                        resultsSection.html("<p>검색결과가 없습니다</p>");
+                    }
+                },
+                error: function() {
+                    alert("검색 오류");
+                }
+            });
+        });
+    });
+</script>
+	
 </body>
 </html>

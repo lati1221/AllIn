@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dlqudwp.allin.like.repository.LikeRepository;
+import com.dlqudwp.allin.user.domain.User;
 
 @Service
 public class LikeService {

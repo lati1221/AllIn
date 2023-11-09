@@ -24,5 +24,7 @@ public interface ProductRepository {
 
 	
 	public int deleteProduct(@Param("productId") int productId);
+	
+	public List<Product> searchByKeyword(@Param("keyword") String keyword);
 
 }

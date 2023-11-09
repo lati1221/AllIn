@@ -2,6 +2,7 @@ package com.dlqudwp.allin.product.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,12 +61,38 @@ public class ProductService {
 		
 	}
 	
+	public List<ProductDetail> searchProducts(String keyword) {
+        List<Product> products = productRepository.searchByKeyword(keyword);
+        return products.stream()
+                       .map(this::convertToProductDetail)
+                       .collect(Collectors.toList());
+    }
+
+    private ProductDetail convertToProductDetail(Product product) {
+       
+        int likeCount = likeService.countLike(product.getId());
+        boolean isLike = likeService.isLike(product.getId(), product.getUserId()); 
+        List<CommentDetail> commentList = commentService.getCommentList(product.getId());
+
+        return ProductDetail.builder()
+                            .id(product.getId())
+                            .productId(product.getId()) 
+                            .productName(product.getProductName())
+                            .content(product.getContent())
+                            .imagePath(product.getImagePath())
+                            .price(product.getPrice())
+                            .likeCount(likeCount)
+                            .isLike(isLike)
+                            .commentList(commentList)
+                            .build();
+    }
+	
+	
 	public List<ProductDetail> getProductList(int userId) {
 	
 		List<Product> productList = productRepository.selectProductList();
 		List<ProductDetail> productDetailList = new ArrayList<>();
 		for(Product product:productList) {
-			
 			
 			int productId = product.getId();
 			User user = userService.getUserById(userId);

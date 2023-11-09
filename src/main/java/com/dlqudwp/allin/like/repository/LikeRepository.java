@@ -3,6 +3,8 @@ package com.dlqudwp.allin.like.repository;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.dlqudwp.allin.user.domain.User;
+
 @Repository
 public interface LikeRepository {
 	

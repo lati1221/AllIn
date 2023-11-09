@@ -17,7 +17,7 @@
 		<nav class="sub-menu mt-4">
                     <ul class="nav d-flex align-items-center justify-content-between bg-warning">
                     	<li class="nav-item"><a href="/mainmenu/product" class="nav-link small-link" style="color:blueviolet">제품등록</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">인기상품</a></li>
+                        <li class="nav-item"><a href="/mainmenu/productList" class="nav-link small-link" style="color:blueviolet">인기상품</a></li>
                         <li class="nav-item"><a href="/user/join" class="nav-link small-link" style="color:blueviolet">회원가입</a></li>
                         <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">고객센터</a></li>
                         <li class="nav-item"><a href="#" class="nav-link small-link" style="color:blueviolet">장바구니</a></li>

@@ -58,6 +58,20 @@
 			`product`
 		WHERE 
 			`userId` = #{1}
+	</select>
+	
+	<select id="selectProductList" resultType="com.dlqudwp.allin.product.domain.Product">
+		SELECT 
+			`id`
+			, `userId`
+			, `productName`
+			, `content`
+			, `imagePath`
+			, `price`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`product`
 		ORDER BY 
 			`id` DESC
 	</select>
@@ -67,6 +81,7 @@
 			`product`
 		WHERE 
 			`userId` = #{1}
+
 	
 	</delete>
   

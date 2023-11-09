@@ -13,6 +13,7 @@ public class ProductDetail {
 	
 	private int id;
 	private int productId;
+	private String productName;
 	private String content;
 	private String imagePath;
 	private int price;

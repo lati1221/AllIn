@@ -85,7 +85,7 @@
 					, data:formData
 					, enctype:"multipart/form-data"  
 					, processData:false  
-					, contentType:false   
+					, contentType:false  
 					, success:function(data) {
 						if(data.result == "success") {
 							location.href = "/mainpage-view";

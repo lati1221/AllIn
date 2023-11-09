@@ -53,7 +53,7 @@ public class CommentService {
 	}
 	
 	public int deleteCommentByProductId(int productId) {
-		return commentRepository.deleteCommentByPost(productId);
+		return commentRepository.deleteCommentByProduct(productId);
 	}
 	
 

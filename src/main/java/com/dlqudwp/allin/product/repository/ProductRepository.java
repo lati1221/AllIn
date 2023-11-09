@@ -20,7 +20,7 @@ public interface ProductRepository {
 	
 	public Product selectProduct(@Param("productId") int productId);
 	
-	public List<Product> selectProductList(@Param("userId") int userId);
+	public List<Product> selectProductList();
 
 	
 	public int deleteProduct(@Param("productId") int productId);

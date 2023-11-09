@@ -62,9 +62,10 @@ public class ProductService {
 	
 	public List<ProductDetail> getProductList(int userId) {
 	
-		List<Product> productList = productRepository.selectProductList(userId);
+		List<Product> productList = productRepository.selectProductList();
 		List<ProductDetail> productDetailList = new ArrayList<>();
 		for(Product product:productList) {
+			
 			
 			int productId = product.getId();
 			User user = userService.getUserById(userId);

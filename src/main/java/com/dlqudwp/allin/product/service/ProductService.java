@@ -1,8 +1,8 @@
 package com.dlqudwp.allin.product.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,29 +63,34 @@ public class ProductService {
 	
 	public List<ProductDetail> searchProducts(String keyword) {
         List<Product> products = productRepository.searchByKeyword(keyword);
-        return products.stream()
-                       .map(this::convertToProductDetail)
-                       .collect(Collectors.toList());
-    }
+        List<ProductDetail> productDetailList = new ArrayList<>();
+        
+        for (Product product : products) {
+            
+            int productId = product.getId();
+            User user = userService.getUserById(product.getUserId());
+            int likeCount = likeService.countLike(productId);
+            boolean isLike = likeService.isLike(productId, user.getId());
+            List<CommentDetail> commentList = commentService.getCommentList(productId);
 
-    private ProductDetail convertToProductDetail(Product product) {
-       
-        int likeCount = likeService.countLike(product.getId());
-        boolean isLike = likeService.isLike(product.getId(), product.getUserId()); 
-        List<CommentDetail> commentList = commentService.getCommentList(product.getId());
+            ProductDetail productDetail = ProductDetail.builder()
+                    .id(product.getId())
+                    .productId(productId)
+                    .productName(product.getProductName())
+                    .content(product.getContent())
+                    .imagePath(product.getImagePath())
+                    .price(product.getPrice())
+                    .likeCount(likeCount)
+                    .isLike(isLike)
+                    .commentList(commentList)
+                    .build();
 
-        return ProductDetail.builder()
-                            .id(product.getId())
-                            .productId(product.getId()) 
-                            .productName(product.getProductName())
-                            .content(product.getContent())
-                            .imagePath(product.getImagePath())
-                            .price(product.getPrice())
-                            .likeCount(likeCount)
-                            .isLike(isLike)
-                            .commentList(commentList)
-                            .build();
+            productDetailList.add(productDetail);
+        }
+
+        return productDetailList;
     }
+	
 	
 	
 	public List<ProductDetail> getProductList(int userId) {

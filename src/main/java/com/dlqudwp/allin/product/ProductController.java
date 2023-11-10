@@ -34,10 +34,10 @@ public class ProductController {
 	}
 	
 	@GetMapping("/search")
-    public String searchProducts(@RequestParam("keyword") String keyword, Model model) {
-        List<ProductDetail> searchResults = productService.searchProducts(keyword);
-        model.addAttribute("searchResults", searchResults);
-        return "main/mainpage"; 
+	public String searchProducts(@RequestParam("keyword") String keyword, Model model) {
+	    List<ProductDetail> productList = productService.searchProducts(keyword);
+	    model.addAttribute("productList", productList); 
+	    return "main/mainpage";
     }
 
 	

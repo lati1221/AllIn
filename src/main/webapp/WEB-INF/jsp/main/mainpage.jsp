@@ -24,11 +24,13 @@
                     </ul>                        
                 </nav>
                 <section class="contents d-flex">
-                 <article class="main-contents col-10 d-flex flex-wrap justify-content-between py-4">
-                    <div class="product">
-                        <div class="font-weight-bold text-warning">
+                 <article class="main-contents col-10 d-flex flex-wrap py-4">
+                    <div class="product d-flex align-items-center justify-content-between">
+                        <div class="d-flex font-weight-bold text-warning align-items-center justify-content-between">
                         <c:forEach var="product" items="${productList }">
+                            <div class="d-flex font-weight-bold text-warning align-items-center justify-content-between">
                             <a href="#">${product.productName }</a>
+                            </div>
                         </c:forEach>
                         </div>
                     </div>  
@@ -46,7 +48,7 @@
             let keyword = $("#searchInput").val();
 
             $.ajax({
-                url: "/product/search" 
+                url: "/search" 
                 , method: "get"
                 , data: { "keyword" : keyword }
                 , success: function(response) {
@@ -59,6 +61,7 @@
                             '<img src="' + product.imagePath + '" alt="' + product.productName + '" style="width:100px; height:100px;">' +
                             '<h3>' + product.productName + '</h3>' +
                             '<p>' + product.content + '</p>' +
+                            '<p>가격: ' + product.price + ' 원</p>'+
                             
                         '</div>';
                             resultsSection.append(productHtml);

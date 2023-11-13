@@ -1,11 +1,13 @@
 package com.dlqudwp.allin.like.repository;
 
-import org.apache.ibatis.annotations.Param;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShoppingCartRepository {
 	
-	int addToCart(@Param("userId") int userId, @Param("productId") int productId);
-
+	  int addToCart(int userId, int productId);
+	  
+	  int removeFromCart(int userId, int productId);
 }

@@ -8,13 +8,16 @@ import com.dlqudwp.allin.like.repository.ShoppingCartRepository;
 @Service
 public class ShoppingCartService {
 	
-	@Autowired
-    private ShoppingCartRepository cartRepository;
+	 @Autowired
+	    private ShoppingCartRepository shoppingCartRepository;
 
-    public int addToCart(int userId, int productId) {
-        return cartRepository.addToCart(userId, productId);
-    }
-
+	    public void addToCart(int userId, int productId) {
+	        
+	        shoppingCartRepository.addToCart(userId, productId);
+	    }
     
-    
+	    public void removeFromCart(int userId, int productId) {
+	       
+	        shoppingCartRepository.removeFromCart(userId, productId);
+	    }
 }

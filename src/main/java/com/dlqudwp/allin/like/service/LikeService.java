@@ -12,16 +12,28 @@ public class LikeService {
 	private LikeRepository likeRepository;
 	
 	@Autowired
-	private ShoppingCartService cartService;
-	
-	public int addLike(int productId, int userId) {
-		int likeResult = likeRepository.insertLike(productId, userId);
-		
-		 if (likeResult == 1) {
-	            cartService.addToCart(userId, productId); 
-	        }
-	        return likeResult;
-	}
+    private ShoppingCartService shoppingCartService; 
+
+    public int addLike(int productId, int userId) {
+        int likeResult = likeRepository.insertLike(productId, userId);
+        
+        if (likeResult == 1) {
+            shoppingCartService.addToCart(userId, productId); // Add to cart when liked
+        }
+
+        return likeResult;
+    }
+    
+    public int deleteLikeByProductIdAndUserId(int productId, int userId) {
+        int unlikeResult = likeRepository.deleteLikeByProductIdAndUserId(productId, userId);
+        
+        if (unlikeResult == 1) {
+            shoppingCartService.removeFromCart(userId, productId); // Remove from cart when unliked
+        }
+
+        return unlikeResult;
+    }
+    
 	
 	public int countLike(int productId) {
 		return likeRepository.selectCountLike(productId);
@@ -37,9 +49,6 @@ public class LikeService {
 		return likeRepository.deleteLikeByProductId(productId);
 	}
 	
-	public int deleteLikeByProductIdAndUserId(int productId, int userId) {
-		return likeRepository.deleteLikeByProductIdAndUserId(productId, userId);
-	}
 
 
 

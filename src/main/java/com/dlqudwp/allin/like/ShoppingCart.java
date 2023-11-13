@@ -1,6 +1,6 @@
 package com.dlqudwp.allin.like;
 
-public class ShoppinmgCart {
+public class ShoppingCart {
 	
 	 private int userId;
 	 private int productId;

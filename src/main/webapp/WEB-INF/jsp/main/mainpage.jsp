@@ -25,7 +25,7 @@
 
 
     <div id="searchResults" class="main-contents col-10 d-flex flex-wrap py-4">
-        
+        <h1></h1>
     </div>
 
     <c:import url="/WEB-INF/jsp/include/footer.jsp" />

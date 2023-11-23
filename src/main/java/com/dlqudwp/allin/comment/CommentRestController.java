@@ -1,7 +1,6 @@
 package com.dlqudwp.allin.comment;
 
 import java.util.HashMap;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;

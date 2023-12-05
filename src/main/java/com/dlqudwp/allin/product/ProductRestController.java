@@ -65,10 +65,5 @@ public class ProductRestController {
 	}
 	
 
-	//@GetMapping("/search")
-    //public ResponseEntity<List<ProductDetail>> searchProducts(@RequestParam("keyword") String keyword) {
-       // List<ProductDetail> searchResults = productService.searchProducts(keyword);
-       // return ResponseEntity.ok(searchResults);
-    //}
 	
 }

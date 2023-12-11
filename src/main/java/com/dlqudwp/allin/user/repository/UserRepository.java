@@ -10,7 +10,8 @@ import com.dlqudwp.allin.user.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	public Optional<User> findByLoginIdAndPassword(String loginId, String password);
+    Optional<User> findByLoginId(String loginId);
+
 	
 	public int countByLoginId(String loginId);
 	
